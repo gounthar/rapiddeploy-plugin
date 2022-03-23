@@ -39,8 +39,8 @@ def call(args = [:]) {
     }
     def showFullLog = args.showFullLog
     if (showFullLog == null) {
-        println("INFO: 'showFullLog' parameter not provided, hidding full log.")
-        showFullLog = false
+        println("INFO: 'showFullLog' parameter not provided, showing full log by default.")
+        showFullLog = true
     }
     def dictionary = args.dictionary ?: [:]
     if (!(dictionary instanceof Map)) {
