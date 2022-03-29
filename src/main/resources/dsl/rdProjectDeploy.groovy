@@ -1,7 +1,8 @@
 package dsl
 
+import static dsl.RdConnectorProxy.checkJobStatus
+
 import com.midvision.rapiddeploy.connector.RapidDeployConnector
-import com.midvision.rapiddeploy.plugin.jenkins.RapidDeployConnectorProxy
 import com.midvision.rapiddeploy.plugin.jenkins.log.PipelineLogger
 
 def call(args = [:]) {
@@ -66,7 +67,7 @@ def call(args = [:]) {
         final def jobRequestOutput = RapidDeployConnector.invokeRapidDeployDeploymentPollOutput(authToken.toString(), serverUrl.toString(),
                 project.toString(), target.toString(), deploymentPackageName.toString(), false, true, dictionary)
         if (!asynchronous) {
-            RapidDeployConnectorProxy.checkJobStatus(new PipelineLogger(this), serverUrl, authToken, jobRequestOutput, false, showFullLog)
+            checkJobStatus(new PipelineLogger(this), serverUrl, authToken, jobRequestOutput, false, showFullLog)
         }
     } catch (Exception e) {
         throw e
