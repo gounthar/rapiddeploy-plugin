@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.jenkins-ci.plugins</groupId>
 		<artifactId>plugin</artifactId>
-		<version>3.57</version>
+		<version>4.12</version>
 	</parent>
 
 	<name>RapidDeploy Plugin</name>
@@ -30,9 +30,9 @@
 	</scm>
 
 	<properties>
-		<workflow.version>1.13</workflow.version>
-		<jenkins-test-harness.version>2.48</jenkins-test-harness.version>
+		<jenkins.version>2.332.3</jenkins.version>
 		<java.level>8</java.level>
+		<workflow.version>2725.v7b_c717eb_12ce</workflow.version>
 	</properties>
 
 	<dependencies>
@@ -47,55 +47,7 @@
 			<version>${workflow.version}</version>
 		</dependency>
 	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.jenkins-ci.ui</groupId>
-				<artifactId>jquery-detached</artifactId>
-				<version>1.2.1</version>
-			</dependency>
-			<dependency>
-				<groupId>org.jenkins-ci</groupId>
-				<artifactId>version-number</artifactId>
-				<version>1.6</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.6</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.wagon</groupId>
-						<artifactId>wagon-http</artifactId>
-						<version>2.10</version>
-						<type>jar</type>
-					</dependency>
-				</dependencies>
-			</plugin>
-		</plugins>
-	</build>
-
-	<!-- This is necessary because https://maven.jenkins-ci.org does't work 
-		anymore, so we need to overwrite the repositories as per Jenkins documentation. -->
-	<distributionManagement>
-		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>maven.jenkins-ci.org</id>
-			<url>https://repo.jenkins-ci.org/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>maven.jenkins-ci.org</id>
-			<url>https://repo.jenkins-ci.org/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
-	<!-- Get every artifact through repo.jenkins-ci.org, which proxies all the 
-		artifacts that we need. -->
 	<repositories>
 		<repository>
 			<id>repo.jenkins-ci.org</id>
