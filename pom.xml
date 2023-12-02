@@ -3,7 +3,8 @@
 	<parent>
 		<groupId>org.jenkins-ci.plugins</groupId>
 		<artifactId>plugin</artifactId>
-		<version>4.12</version>
+		<version>4.51</version>
+		<relativePath/>
 	</parent>
 
 	<name>RapidDeploy Plugin</name>
@@ -30,10 +31,20 @@
 	</scm>
 
 	<properties>
-		<jenkins.version>2.332.3</jenkins.version>
-		<java.level>8</java.level>
+		<jenkins.version>2.346.3</jenkins.version>
 		<workflow.version>2725.v7b_c717eb_12ce</workflow.version>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.jenkins.tools.bom</groupId>
+				<artifactId>bom-2.332.x</artifactId>
+				<version>1763.v092b_8980a_f5e</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -44,7 +55,6 @@
 		<dependency>
 			<groupId>org.jenkins-ci.plugins.workflow</groupId>
 			<artifactId>workflow-cps</artifactId>
-			<version>${workflow.version}</version>
 		</dependency>
 	</dependencies>
 
