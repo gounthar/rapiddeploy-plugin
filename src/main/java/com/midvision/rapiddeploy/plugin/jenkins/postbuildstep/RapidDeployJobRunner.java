@@ -3,7 +3,7 @@ package com.midvision.rapiddeploy.plugin.jenkins.postbuildstep;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
